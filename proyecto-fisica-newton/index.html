@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de las 3 Leyes de Newton</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/laws.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="title">Simulador de las 3 Leyes de Newton</h1>
+                <p class="subtitle">Explora la física fundamental de manera interactiva</p>
+            </div>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <nav class="nav-tabs">
+            <button class="tab-button active" data-law="first">
+                <span class="tab-icon">⚖️</span>
+                <span class="tab-text">1ª Ley - Inercia</span>
+            </button>
+            <button class="tab-button" data-law="second">
+                <span class="tab-icon">🚀</span>
+                <span class="tab-text">2ª Ley - F = ma</span>
+            </button>
+            <button class="tab-button" data-law="third">
+                <span class="tab-icon">⚡</span>
+                <span class="tab-text">3ª Ley - Acción-Reacción</span>
+            </button>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- First Law Simulator -->
+            <section id="first-law" class="law-section active">
+                <div class="law-header">
+                    <h2>Primera Ley de Newton - Ley de Inercia</h2>
+                    <p class="law-description">
+                        "Un objeto en reposo permanece en reposo, y un objeto en movimiento permanece en movimiento
+                        a velocidad constante, a menos que actúe sobre él una fuerza neta."
+                    </p>
+                </div>
+
+                <div class="simulator-container">
+                    <div class="canvas-container">
+                        <canvas id="first-law-canvas" width="800" height="400"></canvas>
+                        <div class="canvas-overlay">
+                            <div class="object-info" id="first-law-info">
+                                <div class="info-item">
+                                    <span class="label">Velocidad:</span>
+                                    <span class="value" id="velocity-display">0 m/s</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="label">Fricción:</span>
+                                    <span class="value" id="friction-display">0.1</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="controls-panel">
+                        <h3>Controles</h3>
+                        <div class="control-group">
+                            <label for="initial-velocity">Velocidad Inicial (m/s):</label>
+                            <input type="range" id="initial-velocity" min="0" max="20" value="10" step="0.5">
+                            <span class="control-value" id="initial-velocity-value">10</span>
+                        </div>
+
+                        <div class="control-group">
+                            <label for="friction-coefficient">Coeficiente de Fricción:</label>
+                            <input type="range" id="friction-coefficient" min="0" max="1" value="0.1" step="0.01">
+                            <span class="control-value" id="friction-coefficient-value">0.1</span>
+                        </div>
+
+                        <div class="control-group">
+                            <label for="surface-type">Tipo de Superficie:</label>
+                            <select id="surface-type">
+                                <option value="ice">Hielo (μ = 0.01)</option>
+                                <option value="wood">Madera (μ = 0.2)</option>
+                                <option value="asphalt">Asfalto (μ = 0.7)</option>
+                                <option value="sand">Arena (μ = 0.9)</option>
+                            </select>
+                        </div>
+
+                        <div class="control-buttons">
+                            <button id="start-first" class="btn btn-primary">Iniciar</button>
+                            <button id="reset-first" class="btn btn-secondary">Reset</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Second Law Simulator -->
+            <section id="second-law" class="law-section">
+                <div class="law-header">
+                    <h2>Segunda Ley de Newton - F = ma</h2>
+                    <p class="law-description">
+                        "La aceleración de un objeto es directamente proporcional a la fuerza neta aplicada
+                        e inversamente proporcional a su masa."
+                    </p>
+                </div>
+
+                <div class="simulator-container">
+                    <div class="canvas-container">
+                        <canvas id="second-law-canvas" width="800" height="400"></canvas>
+                        <div class="canvas-overlay">
+                            <div class="object-info" id="second-law-info">
+                                <div class="info-item">
+                                    <span class="label">Fuerza:</span>
+                                    <span class="value" id="force-display">0 N</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="label">Masa:</span>
+                                    <span class="value" id="mass-display">1 kg</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="label">Aceleración:</span>
+                                    <span class="value" id="acceleration-display">0 m/s²</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="controls-panel">
+                        <h3>Controles</h3>
+                        <div class="control-group">
+                            <label for="applied-force">Fuerza Aplicada (N):</label>
+                            <input type="range" id="applied-force" min="0" max="100" value="20" step="1">
+                            <span class="control-value" id="applied-force-value">20</span>
+                        </div>
+
+                        <div class="control-group">
+                            <label for="object-mass">Masa del Objeto (kg):</label>
+                            <input type="range" id="object-mass" min="0.1" max="10" value="1" step="0.1">
+                            <span class="control-value" id="object-mass-value">1</span>
+                        </div>
+
+                        <div class="control-group">
+                            <label for="force-direction">Dirección de la Fuerza:</label>
+                            <input type="range" id="force-direction" min="0" max="360" value="0" step="15">
+                            <span class="control-value" id="force-direction-value">0°</span>
+                        </div>
+
+                        <div class="control-buttons">
+                            <button id="start-second" class="btn btn-primary">Aplicar Fuerza</button>
+                            <button id="reset-second" class="btn btn-secondary">Reset</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Third Law Simulator -->
+            <section id="third-law" class="law-section">
+                <div class="law-header">
+                    <h2>Tercera Ley de Newton - Acción y Reacción</h2>
+                    <p class="law-description">
+                        "Para cada acción, hay una reacción igual y opuesta. Las fuerzas siempre ocurren en pares."
+                    </p>
+                </div>
+
+                <div class="simulator-container">
+                    <div class="canvas-container">
+                        <canvas id="third-law-canvas" width="800" height="400"></canvas>
+                        <div class="canvas-overlay">
+                            <div class="object-info" id="third-law-info">
+                                <div class="info-item">
+                                    <span class="label">Fuerza A→B:</span>
+                                    <span class="value" id="force-ab-display">0 N</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="label">Fuerza B→A:</span>
+                                    <span class="value" id="force-ba-display">0 N</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="label">Momentum Total:</span>
+                                    <span class="value" id="momentum-display">0 kg⋅m/s</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="controls-panel">
+                        <h3>Controles</h3>
+                        <div class="control-group">
+                            <label for="object-a-mass">Masa Objeto A (kg):</label>
+                            <input type="range" id="object-a-mass" min="0.1" max="5" value="1" step="0.1">
+                            <span class="control-value" id="object-a-mass-value">1</span>
+                        </div>
+
+                        <div class="control-group">
+                            <label for="object-b-mass">Masa Objeto B (kg):</label>
+                            <input type="range" id="object-b-mass" min="0.1" max="5" value="2" step="0.1">
+                            <span class="control-value" id="object-b-mass-value">2</span>
+                        </div>
+
+                        <div class="control-group">
+                            <label for="collision-type">Tipo de Colisión:</label>
+                            <select id="collision-type">
+                                <option value="elastic">Elástica</option>
+                                <option value="inelastic">Inelástica</option>
+                                <option value="perfectly-inelastic">Perfectamente Inelástica</option>
+                            </select>
+                        </div>
+
+                        <div class="control-buttons">
+                            <button id="start-third" class="btn btn-primary">Iniciar Colisión</button>
+                            <button id="reset-third" class="btn btn-secondary">Reset</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2024 Simulador de Física - Las 3 Leyes de Newton</p>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>

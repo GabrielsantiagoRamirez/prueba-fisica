@@ -1,0 +1,402 @@
+/* Component-specific styles */
+
+/* Physics Objects */
+.physics-object {
+    position: absolute;
+    border-radius: 50%;
+    box-shadow: var(--shadow-md);
+    transition: all 0.1s ease;
+    cursor: pointer;
+    user-select: none;
+}
+
+.physics-object:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-lg);
+}
+
+.object-ball {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    border: 2px solid white;
+}
+
+.object-box {
+    background: linear-gradient(135deg, var(--secondary-color), #059669);
+    border: 2px solid white;
+    border-radius: var(--radius-md);
+}
+
+.object-rocket {
+    background: linear-gradient(135deg, var(--accent-color), #d97706);
+    border: 2px solid white;
+    border-radius: var(--radius-sm);
+}
+
+/* Force Vectors */
+.force-vector {
+    position: absolute;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.force-arrow {
+    stroke: var(--danger-color);
+    stroke-width: 3;
+    fill: var(--danger-color);
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.force-label {
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    fill: var(--danger-color);
+    text-anchor: middle;
+}
+
+/* Velocity Vectors */
+.velocity-vector {
+    position: absolute;
+    pointer-events: none;
+    z-index: 9;
+}
+
+.velocity-arrow {
+    stroke: var(--secondary-color);
+    stroke-width: 2;
+    fill: var(--secondary-color);
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+}
+
+.velocity-label {
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    fill: var(--secondary-color);
+    text-anchor: middle;
+}
+
+/* Acceleration Vectors */
+.acceleration-vector {
+    position: absolute;
+    pointer-events: none;
+    z-index: 8;
+}
+
+.acceleration-arrow {
+    stroke: var(--accent-color);
+    stroke-width: 2;
+    fill: var(--accent-color);
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+}
+
+.acceleration-label {
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    fill: var(--accent-color);
+    text-anchor: middle;
+}
+
+/* Trajectory Path */
+.trajectory-path {
+    stroke: var(--gray-400);
+    stroke-width: 2;
+    fill: none;
+    stroke-dasharray: 5, 5;
+    opacity: 0.7;
+}
+
+/* Surface Types */
+.surface-ice {
+    background: linear-gradient(135deg, #e0f2fe 0%, #b3e5fc 100%);
+}
+
+.surface-wood {
+    background: linear-gradient(135deg, #8d6e63 0%, #5d4037 100%);
+}
+
+.surface-asphalt {
+    background: linear-gradient(135deg, #424242 0%, #212121 100%);
+}
+
+.surface-sand {
+    background: linear-gradient(135deg, #ffcc80 0%, #ffb74d 100%);
+}
+
+/* Collision Effects */
+.collision-effect {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(239, 68, 68, 0.3) 0%, transparent 70%);
+    animation: collisionPulse 0.5s ease-out;
+    pointer-events: none;
+    z-index: 20;
+}
+
+@keyframes collisionPulse {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(3);
+        opacity: 0;
+    }
+}
+
+/* Loading States */
+.loading {
+    position: relative;
+    overflow: hidden;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+/* Status Indicators */
+.status-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    padding: var(--spacing-2) var(--spacing-3);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+}
+
+.status-running {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--secondary-color);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.status-paused {
+    background: rgba(245, 158, 11, 0.1);
+    color: var(--accent-color);
+    border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+.status-stopped {
+    background: rgba(107, 114, 128, 0.1);
+    color: var(--gray-500);
+    border: 1px solid rgba(107, 114, 128, 0.2);
+}
+
+/* Data Visualization */
+.data-chart {
+    background: white;
+    border-radius: var(--radius-md);
+    padding: var(--spacing-4);
+    box-shadow: var(--shadow-sm);
+    margin-top: var(--spacing-4);
+}
+
+.chart-title {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--gray-700);
+    margin-bottom: var(--spacing-3);
+    text-align: center;
+}
+
+.chart-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--spacing-2);
+}
+
+.chart-label {
+    font-size: var(--font-size-xs);
+    color: var(--gray-600);
+    width: 80px;
+    text-align: right;
+    margin-right: var(--spacing-2);
+}
+
+.chart-value {
+    flex: 1;
+    height: 20px;
+    background: var(--gray-200);
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.chart-fill {
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.3s ease;
+}
+
+.chart-fill-force {
+    background: linear-gradient(90deg, var(--danger-color), #f87171);
+}
+
+.chart-fill-velocity {
+    background: linear-gradient(90deg, var(--secondary-color), #34d399);
+}
+
+.chart-fill-acceleration {
+    background: linear-gradient(90deg, var(--accent-color), #fbbf24);
+}
+
+.chart-number {
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    color: var(--gray-700);
+    margin-left: var(--spacing-2);
+    min-width: 40px;
+    text-align: right;
+}
+
+/* Tooltips */
+.tooltip {
+    position: absolute;
+    background: var(--gray-900);
+    color: white;
+    padding: var(--spacing-2) var(--spacing-3);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-xs);
+    font-weight: 500;
+    pointer-events: none;
+    z-index: 100;
+    opacity: 0;
+    transform: translateY(5px);
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.tooltip.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 4px solid transparent;
+    border-top-color: var(--gray-900);
+}
+
+/* Animations */
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-10px);
+    }
+
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        transform: translateX(-2px);
+    }
+
+    20%,
+    40%,
+    60%,
+    80% {
+        transform: translateX(2px);
+    }
+}
+
+@keyframes glow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
+    }
+
+    50% {
+        box-shadow: 0 0 20px rgba(59, 130, 246, 0.8);
+    }
+}
+
+.bounce {
+    animation: bounce 1s ease-in-out;
+}
+
+.shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+.glow {
+    animation: glow 2s ease-in-out infinite;
+}
+
+/* Responsive Components */
+@media (max-width: 768px) {
+    .physics-object {
+        transform: scale(0.8);
+    }
+
+    .force-vector,
+    .velocity-vector,
+    .acceleration-vector {
+        transform: scale(0.7);
+    }
+
+    .data-chart {
+        margin-top: var(--spacing-3);
+        padding: var(--spacing-3);
+    }
+
+    .chart-bar {
+        margin-bottom: var(--spacing-1);
+    }
+
+    .chart-label {
+        width: 60px;
+        font-size: 10px;
+    }
+
+    .chart-value {
+        height: 16px;
+    }
+
+    .chart-number {
+        font-size: 10px;
+        min-width: 30px;
+    }
+}

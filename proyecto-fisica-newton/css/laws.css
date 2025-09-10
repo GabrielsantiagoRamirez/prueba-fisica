@@ -1,0 +1,361 @@
+/* Law-specific styles */
+
+/* First Law - Inertia */
+#first-law {
+    --law-color: #3b82f6;
+    --law-color-light: #dbeafe;
+    --law-color-dark: #1e40af;
+}
+
+#first-law .law-header {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(219, 234, 254, 0.3));
+    border-left: 4px solid var(--law-color);
+}
+
+#first-law .tab-button.active {
+    color: var(--law-color);
+    background: rgba(59, 130, 246, 0.1);
+}
+
+#first-law .btn-primary {
+    background: linear-gradient(135deg, var(--law-color), var(--law-color-dark));
+}
+
+#first-law .control-value {
+    color: var(--law-color);
+    background: rgba(59, 130, 246, 0.1);
+}
+
+#first-law .info-item .value {
+    color: var(--law-color);
+}
+
+/* First Law specific elements */
+.skating-object {
+    background: linear-gradient(135deg, #3b82f6, #1e40af);
+    border: 3px solid white;
+    box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
+}
+
+.friction-indicator {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.surface-texture {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background: repeating-linear-gradient(90deg,
+            transparent,
+            transparent 2px,
+            rgba(0, 0, 0, 0.1) 2px,
+            rgba(0, 0, 0, 0.1) 4px);
+}
+
+/* Second Law - F = ma */
+#second-law {
+    --law-color: #10b981;
+    --law-color-light: #d1fae5;
+    --law-color-dark: #047857;
+}
+
+#second-law .law-header {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(209, 250, 229, 0.3));
+    border-left: 4px solid var(--law-color);
+}
+
+#second-law .tab-button.active {
+    color: var(--law-color);
+    background: rgba(16, 185, 129, 0.1);
+}
+
+#second-law .btn-primary {
+    background: linear-gradient(135deg, var(--law-color), var(--law-color-dark));
+}
+
+#second-law .control-value {
+    color: var(--law-color);
+    background: rgba(16, 185, 129, 0.1);
+}
+
+#second-law .info-item .value {
+    color: var(--law-color);
+}
+
+/* Second Law specific elements */
+.force-arrow {
+    stroke: var(--law-color);
+    fill: var(--law-color);
+}
+
+.acceleration-arrow {
+    stroke: #f59e0b;
+    fill: #f59e0b;
+}
+
+.velocity-arrow {
+    stroke: #8b5cf6;
+    fill: #8b5cf6;
+}
+
+.force-application-point {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: var(--law-color);
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 15;
+}
+
+.force-direction-indicator {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 10px solid var(--law-color);
+    z-index: 14;
+}
+
+/* Third Law - Action-Reaction */
+#third-law {
+    --law-color: #f59e0b;
+    --law-color-light: #fef3c7;
+    --law-color-dark: #d97706;
+}
+
+#third-law .law-header {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(254, 243, 199, 0.3));
+    border-left: 4px solid var(--law-color);
+}
+
+#third-law .tab-button.active {
+    color: var(--law-color);
+    background: rgba(245, 158, 11, 0.1);
+}
+
+#third-law .btn-primary {
+    background: linear-gradient(135deg, var(--law-color), var(--law-color-dark));
+}
+
+#third-law .control-value {
+    color: var(--law-color);
+    background: rgba(245, 158, 11, 0.1);
+}
+
+#third-law .info-item .value {
+    color: var(--law-color);
+}
+
+/* Third Law specific elements */
+.object-a {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    border: 3px solid white;
+    box-shadow: 0 4px 8px rgba(245, 158, 11, 0.3);
+}
+
+.object-b {
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+    border: 3px solid white;
+    box-shadow: 0 4px 8px rgba(139, 92, 246, 0.3);
+}
+
+.action-force {
+    stroke: var(--law-color);
+    fill: var(--law-color);
+    stroke-width: 4;
+}
+
+.reaction-force {
+    stroke: #8b5cf6;
+    fill: #8b5cf6;
+    stroke-width: 4;
+}
+
+.collision-zone {
+    position: absolute;
+    background: rgba(245, 158, 11, 0.2);
+    border: 2px dashed var(--law-color);
+    border-radius: 8px;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.momentum-indicator {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    pointer-events: none;
+    z-index: 20;
+}
+
+/* Collision Types */
+.collision-elastic {
+    border-color: #10b981;
+    background: rgba(16, 185, 129, 0.1);
+}
+
+.collision-inelastic {
+    border-color: #f59e0b;
+    background: rgba(245, 158, 11, 0.1);
+}
+
+.collision-perfectly-inelastic {
+    border-color: #ef4444;
+    background: rgba(239, 68, 68, 0.1);
+}
+
+/* Energy Visualization */
+.energy-bar {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 200px;
+    height: 20px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.energy-kinetic {
+    height: 100%;
+    background: linear-gradient(90deg, #10b981, #34d399);
+    transition: width 0.3s ease;
+}
+
+.energy-potential {
+    height: 100%;
+    background: linear-gradient(90deg, #3b82f6, #60a5fa);
+    transition: width 0.3s ease;
+}
+
+.energy-label {
+    position: absolute;
+    top: -20px;
+    left: 0;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--gray-700);
+}
+
+/* Vector Labels */
+.vector-label {
+    font-size: 12px;
+    font-weight: 600;
+    text-anchor: middle;
+    dominant-baseline: middle;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+}
+
+.force-label {
+    fill: var(--danger-color);
+}
+
+.velocity-label {
+    fill: var(--secondary-color);
+}
+
+.acceleration-label {
+    fill: var(--accent-color);
+}
+
+/* Interactive Elements */
+.draggable {
+    cursor: grab;
+    transition: all 0.2s ease;
+}
+
+.draggable:active {
+    cursor: grabbing;
+    transform: scale(1.1);
+}
+
+.draggable:hover {
+    filter: brightness(1.1);
+}
+
+/* Simulation States */
+.simulation-running .physics-object {
+    animation: none;
+}
+
+.simulation-paused .physics-object {
+    animation-play-state: paused;
+}
+
+.simulation-stopped .physics-object {
+    animation: none;
+    transform: none;
+}
+
+/* Responsive Law Styles */
+@media (max-width: 768px) {
+    .law-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .law-description {
+        font-size: 1rem;
+    }
+
+    .force-arrow,
+    .velocity-arrow,
+    .acceleration-arrow {
+        stroke-width: 2;
+    }
+
+    .action-force,
+    .reaction-force {
+        stroke-width: 3;
+    }
+
+    .energy-bar {
+        width: 150px;
+        height: 16px;
+    }
+
+    .momentum-indicator {
+        font-size: 10px;
+        padding: 2px 6px;
+    }
+}
+
+@media (max-width: 480px) {
+    .law-header {
+        padding: 1rem;
+    }
+
+    .law-header h2 {
+        font-size: 1.25rem;
+    }
+
+    .law-description {
+        font-size: 0.875rem;
+    }
+
+    .energy-bar {
+        width: 120px;
+        height: 14px;
+    }
+
+    .vector-label {
+        font-size: 10px;
+    }
+}
